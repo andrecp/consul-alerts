@@ -134,7 +134,7 @@ func (c *ConsulAlertClient) LoadConfig() {
 			case "consul-alerts/config/notifiers/influxdb/series-name":
 				valErr = loadCustomValue(&config.Notifiers.Influxdb.SeriesName, val, ConfigTypeString)
 
-			// slack notfier config
+			// slack notifier config
 			case "consul-alerts/config/notifiers/slack/enabled":
 				valErr = loadCustomValue(&config.Notifiers.Slack.Enabled, val, ConfigTypeBool)
 			case "consul-alerts/config/notifiers/slack/cluster-name":
@@ -152,7 +152,7 @@ func (c *ConsulAlertClient) LoadConfig() {
 			case "consul-alerts/config/notifiers/slack/detailed":
 				valErr = loadCustomValue(&config.Notifiers.Slack.Detailed, val, ConfigTypeBool)
 
-			// mattermost notfier config
+			// mattermost notifier config
 			case "consul-alerts/config/notifiers/mattermost/enabled":
 				valErr = loadCustomValue(&config.Notifiers.Mattermost.Enabled, val, ConfigTypeBool)
 			case "consul-alerts/config/notifiers/mattermost/cluster-name":
@@ -194,7 +194,7 @@ func (c *ConsulAlertClient) LoadConfig() {
 			case "consul-alerts/config/notifiers/pagerduty/client-url":
 				valErr = loadCustomValue(&config.Notifiers.PagerDuty.ClientUrl, val, ConfigTypeString)
 
-			// hipchat notfier config
+			// hipchat notifier config
 			case "consul-alerts/config/notifiers/hipchat/enabled":
 				valErr = loadCustomValue(&config.Notifiers.HipChat.Enabled, val, ConfigTypeBool)
 			case "consul-alerts/config/notifiers/hipchat/cluster-name":
@@ -228,7 +228,7 @@ func (c *ConsulAlertClient) LoadConfig() {
 			case "consul-alerts/config/notifiers/awssns/template":
 				valErr = loadCustomValue(&config.Notifiers.AwsSns.Template, val, ConfigTypeString)
 
-			// VictorOps notfier config
+			// VictorOps notifier config
 			case "consul-alerts/config/notifiers/victorops/enabled":
 				valErr = loadCustomValue(&config.Notifiers.VictorOps.Enabled, val, ConfigTypeBool)
 			case "consul-alerts/config/notifiers/victorops/api-key":
