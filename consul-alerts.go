@@ -244,6 +244,7 @@ func builtinNotifiers() map[string]notifier.Notifier {
 	slackNotifier := consulClient.SlackNotifier()
 	mattermostNotifier := consulClient.MattermostNotifier()
 	mattermostWebhookNotifier := consulClient.MattermostWebhookNotifier()
+	rocketchatNotifier := consulClient.RocketChatNotifier()
 	pagerdutyNotifier := consulClient.PagerDutyNotifier()
 	hipchatNotifier := consulClient.HipChatNotifier()
 	opsgenieNotifier := consulClient.OpsGenieNotifier()
@@ -268,6 +269,9 @@ func builtinNotifiers() map[string]notifier.Notifier {
 	}
 	if mattermostWebhookNotifier.Enabled {
 		notifiers[mattermostWebhookNotifier.NotifierName()] = mattermostWebhookNotifier
+	}
+	if rocketchatNotifier.Enabled {
+		notifiers[rocketchatNotifier.NotifierName()] = rocketchatNotifier
 	}
 	if pagerdutyNotifier.Enabled {
 		notifiers[pagerdutyNotifier.NotifierName()] = pagerdutyNotifier

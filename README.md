@@ -467,6 +467,24 @@ prefix: `consul-alerts/config/notifiers/mattermost-webhook/`
 | username     | The username to appear on the post [eg: `Consul Alerts`]                                   |
 | icon-url     | URL of a custom image for the notification [eg: `http://someimage.com/someimage.png`]      |
 
+#### Rocket.Chat
+
+Rocket.Chat integration is also supported. To enable, set
+`consul-alerts/config/notifiers/rocketchat/enabled` to `true`. Rocket.Chat details needs to
+be configured.
+
+prefix: `consul-alerts/config/notifiers/rocketchat/`
+
+| key          | description                                         |
+|--------------|-----------------------------------------------------|
+| enabled      | Enable the Rocket.Chat notifier. [Default: false]    |
+| cluster-name | The name of the cluster. [Default: "Consul Alerts"] |
+| url          | The mattermost url (mandatory)                      |
+| username     | The mattermost username (mandatory)                 |
+| password     | The mattermost password (mandatory)                 |
+| team         | The mattermost team (mandatory)                     |
+| channel      | The channel to post the notification (mandatory)    |
+
 #### PagerDuty
 
 To enable PagerDuty built-in notifier, set `consul-alerts/config/notifiers/pagerduty/enabled` to `true`. This is disabled by default. Service key and client details also needs to be configured.

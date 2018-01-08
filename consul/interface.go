@@ -75,6 +75,7 @@ type Consul interface {
 	SlackNotifier() *notifier.SlackNotifier
 	MattermostNotifier() *notifier.MattermostNotifier
 	MattermostWebhookNotifier() *notifier.MattermostWebhookNotifier
+	RocketChatNotifier() *notifier.RocketChatNotifier
 	PagerDutyNotifier() *notifier.PagerDutyNotifier
 	HipChatNotifier() *notifier.HipChatNotifier
 	OpsGenieNotifier() *notifier.OpsGenieNotifier
@@ -145,6 +146,11 @@ func DefaultAlertConfig() *ConsulAlertConfig {
 		ClusterName: "Consul-Alerts",
 	}
 
+	rocketchat := &notifier.RocketChatNotifier{
+		Enabled:     false,
+		ClusterName: "Consul-Alerts",
+	}
+
 	pagerduty := &notifier.PagerDutyNotifier{
 		Enabled: false,
 	}
@@ -175,6 +181,7 @@ func DefaultAlertConfig() *ConsulAlertConfig {
 		Slack:             slack,
 		Mattermost:        mattermost,
 		MattermostWebhook: mattermostWebhook,
+		RocketChat:        rocketchat,
 		PagerDuty:         pagerduty,
 		HipChat:           hipchat,
 		OpsGenie:          opsgenie,

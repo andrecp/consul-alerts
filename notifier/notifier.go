@@ -47,6 +47,7 @@ type Notifiers struct {
 	Slack             *SlackNotifier             `json:"slack"`
 	Mattermost        *MattermostNotifier        `json:"mattermost"`
 	MattermostWebhook *MattermostWebhookNotifier `json:"mattermost-webhook"`
+	RocketChat        *RocketChatNotifier        `json:"rocketchat"`
 	PagerDuty         *PagerDutyNotifier         `json:"pagerduty"`
 	HipChat           *HipChatNotifier           `json:"hipchat"`
 	OpsGenie          *OpsGenieNotifier          `json:"opsgenie"`
@@ -69,6 +70,8 @@ func (n Notifiers) GetNotifier(name string) (Notifier, bool) {
 		return n.Mattermost, true
 	case n.MattermostWebhook != nil && n.MattermostWebhook.NotifierName() == name:
 		return n.MattermostWebhook, true
+	case n.RocketChat != nil && n.RocketChat.NotifierName() == name:
+		return n.RocketChat, true
 	case n.HipChat != nil && n.HipChat.NotifierName() == name:
 		return n.HipChat, true
 	case n.PagerDuty != nil && n.PagerDuty.NotifierName() == name:

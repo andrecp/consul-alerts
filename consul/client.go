@@ -184,7 +184,26 @@ func (c *ConsulAlertClient) LoadConfig() {
 			case "consul-alerts/config/notifiers/mattermost-webhook/icon-url":
 				valErr = loadCustomValue(&config.Notifiers.MattermostWebhook.IconUrl, val, ConfigTypeString)
 
-			// pager-duty notfier config
+			// rocketchat notifier config
+			case "consul-alerts/config/notifiers/rocketchat/enabled":
+				valErr = loadCustomValue(&config.Notifiers.RocketChat.Enabled, val, ConfigTypeBool)
+			case "consul-alerts/config/notifiers/rocketchat/cluster-name":
+				valErr = loadCustomValue(&config.Notifiers.RocketChat.ClusterName, val, ConfigTypeString)
+			case "consul-alerts/config/notifiers/rocketchat/url":
+				valErr = loadCustomValue(&config.Notifiers.RocketChat.Url, val, ConfigTypeString)
+			case "consul-alerts/config/notifiers/rocketchat/username":
+				valErr = loadCustomValue(&config.Notifiers.RocketChat.UserName, val, ConfigTypeString)
+			case "consul-alerts/config/notifiers/rocketchat/password":
+				valErr = loadCustomValue(&config.Notifiers.RocketChat.Password, val, ConfigTypeString)
+			case "consul-alerts/config/notifiers/rocketchat/team":
+				valErr = loadCustomValue(&config.Notifiers.RocketChat.Team, val, ConfigTypeString)
+			case "consul-alerts/config/notifiers/rocketchat/channel":
+				valErr = loadCustomValue(&config.Notifiers.RocketChat.Channel, val, ConfigTypeString)
+			case "consul-alerts/config/notifiers/rocketchat/detailed":
+				valErr = loadCustomValue(&config.Notifiers.RocketChat.Detailed, val, ConfigTypeBool)
+
+
+			// pager-duty notifier config
 			case "consul-alerts/config/notifiers/pagerduty/enabled":
 				valErr = loadCustomValue(&config.Notifiers.PagerDuty.Enabled, val, ConfigTypeBool)
 			case "consul-alerts/config/notifiers/pagerduty/service-key":
@@ -508,6 +527,10 @@ func (c *ConsulAlertClient) MattermostNotifier() *notifier.MattermostNotifier {
 
 func (c *ConsulAlertClient) MattermostWebhookNotifier() *notifier.MattermostWebhookNotifier {
 	return c.config.Notifiers.MattermostWebhook
+}
+
+func (c *ConsulAlertClient) RocketChatNotifier() *notifier.RocketChatNotifier {
+	return c.config.Notifiers.RocketChat
 }
 
 func (c *ConsulAlertClient) PagerDutyNotifier() *notifier.PagerDutyNotifier {
